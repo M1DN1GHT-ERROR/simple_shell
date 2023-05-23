@@ -15,7 +15,9 @@ int main(__attribute__((unused))int argc, char **argv)
 	ssize_t line_length;
 	/*Check if reading from a pipe*/
 	int is_pipe = !isatty(0);
+
 	should_exit = 0;
+
 
 	signal(SIGINT, handle_sigint);
 

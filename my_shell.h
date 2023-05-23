@@ -1,4 +1,4 @@
-#ifndef _SHELL_H_ 
+#ifndef _SHELL_H_
 #define _SHELL_H_
 
 /* Header Files */
@@ -34,7 +34,8 @@ int is_builtin_cmvd(const char *command);
 int check_cmd_path(const char *cmvd, char *cmd_path, char *path_var);
 void store_path_var(char **path_var);
 void exect_cmd(char *cmd, char **argv, char *path_var);
-void execut_exter_cmd(__attribute__((unused)) char *cmd, char **args, char *path_var, char **argv);
+void execut_exter_cmd(__attribute__((unused)) char *cmd, char **args,
+		char *path_var, char **argv);
 
 /*string functions*/
 char *my_strcpy(char *dest, const char *src);
