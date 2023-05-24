@@ -54,6 +54,7 @@ void my_putstring(char *str);
 int	my_strlen(char *s);
 char *my_strchr(const char *s, char c);
 char *_getenv(const char *token);
+char *my_getline(void);
 
 
 #endif
