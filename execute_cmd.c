@@ -21,7 +21,7 @@ void exect_cmd(char *cmd, char **argv, char *path_var)
 	}
 
 	/*Trim trailing whitespace*/
-	fin = cmd + my_strlen(cmd) - 1;
+	fin = cmd + strlen(cmd) - 1;
 	while (fin > cmd && isspace(*fin))
 	{
 	fin--;

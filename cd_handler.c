@@ -11,7 +11,7 @@ void handle_cd(char **args)
 	char *dir, *error_msg;
 	int result;
 
-	if (args[1] != NULL && my_strcmp(args[1], "-") == 0)
+	if (args[1] != NULL && strcmp(args[1], "-") == 0)
 	{
 		dir = _getenv("OLDPWD");
 		error_msg = "cd: previous directory not set\n";

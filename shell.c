@@ -40,7 +40,7 @@ int main(__attribute__((unused))int argc, char **argv)
 	/*Remove the trailing newline character*/
 	cmd[strcspn(cmd, "\n")] = '\0';
 
-	if (my_strlen(cmd) > 0)
+	if (strlen(cmd) > 0)
 		{
 		/*Execute the command*/
 		exect_cmd(cmd, argv, path_var);

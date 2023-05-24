@@ -9,5 +9,5 @@
 
 int is_builtin_cmvd(const char *command)
 {
-	return (my_strcmp(command, "exit") == 0 || my_strcmp(command, "cd") == 0);
+	return (strcmp(command, "exit") == 0 || strcmp(command, "cd") == 0);
 }

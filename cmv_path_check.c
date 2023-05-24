@@ -16,12 +16,12 @@ int check_cmd_path(const char *cmvd, char *cmd_path, char *path_var)
 
 	store_path_var(&path_var); /*Store the PATH variable*/
 	/*Check if the command contains a '/'*/
-	if (my_strchr(cmvd, '/') != NULL)
+	if (strchr(cmvd, '/') != NULL)
 	{
 	/*The command contains a '/', treat it as an absolute or relative path*/
 	if (access(cmvd, X_OK) == 0)
 	{
-	my_strcpy(cmd_path, cmvd);
+	strcpy(cmd_path, cmvd);
 	return (1);
 	}
 	}
@@ -33,9 +33,9 @@ int check_cmd_path(const char *cmvd, char *cmd_path, char *path_var)
 
 	while (path_item != NULL)
 		{
-		my_strcpy(cmd_path, path_item);
-		my_strcat(cmd_path, "/");
-		my_strcat(cmd_path, cmvd);
+		strcpy(cmd_path, path_item);
+		strcat(cmd_path, "/");
+		strcat(cmd_path, cmvd);
 		if (access(cmd_path, X_OK) == 0)
 		{
 		return (1);

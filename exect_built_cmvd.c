@@ -9,11 +9,11 @@
 
 void execute_builtin_cmvd(char **args)
 {
-	if (my_strcmp(args[0], "exit") == 0)
+	if (strcmp(args[0], "exit") == 0)
 	{
 		handle_exit(args);
 	}
-	else if (my_strcmp(args[0], "cd") == 0)
+	else if (strcmp(args[0], "cd") == 0)
 	{
 		handle_cd(args);
 	}
