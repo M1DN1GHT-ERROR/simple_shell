@@ -8,7 +8,7 @@
 
 void handle_sigint(__attribute__((unused))int signum)
 {
-	my_putstring("\n");
-	should_exit = 1; /*Set the flag to exit the shell*/
-	exit(EXIT_SUCCESS);
+
+    write(STDOUT_FILENO, "\n$ ", 3);
+    fflush(stdout);
 }
