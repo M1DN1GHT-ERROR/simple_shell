@@ -19,8 +19,9 @@ void execut_exter_cmd(__attribute__((unused)) char *cmd, char **args,
 
     if (!check_cmd_path(args[0], command_path, path_var))
     {
-        write(STDOUT_FILENO, argv[0], strlen(argv[0]));
-        write(STDOUT_FILENO, ": No such file or directory\n", strlen(": No such file or directory\n"));
+                write(STDOUT_FILENO, "sh: 1: ", strlen("sh: 1: "));
+        write(STDOUT_FILENO, args[0], strlen(args[0]));
+        write(STDOUT_FILENO, ": not found\n", strlen(": not found\n"));
         return;
     }
 
