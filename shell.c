@@ -30,7 +30,7 @@ int main(__attribute__((unused))int argc, char **argv)
 
 	cmd = NULL;
 	buff_size = 0;
-	line_length = my_getline(&cmd, &buff_size, stdin);
+	line_length = getline(&cmd, &buff_size, stdin);
 	if (line_length == -1)
 		{
 		if (isatty(0))
