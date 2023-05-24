@@ -34,6 +34,15 @@ int is_builtin_cmvd(const char *command);
 int check_cmd_path(const char *cmvd, char *cmd_path, char *path_var);
 void store_path_var(char **path_var);
 void exect_cmd(char *cmd, char **argv, char *path_var);
+
+/**
+ * execut_exter_cmd - execute external command
+ *
+ * @cmd: The command string (unused).
+ * @args: An array of arguments for the command.
+ * @path_var: The value of the PATH environment variable.
+ * @argv: The program arguments (unused).
+ */
 void execut_exter_cmd(__attribute__((unused)) char *cmd, char **args,
 		char *path_var, char **argv);
 
