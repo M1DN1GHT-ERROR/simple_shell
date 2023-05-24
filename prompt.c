@@ -11,6 +11,6 @@ void generate_prompt(void)
 	/*Check if reading from a terminal*/
 	if (isatty(STDIN_FILENO))
 	{
-		my_putstring("shellimi$ ");
+		write(STDOUT_FILENO, "$", 1);
 	}
 }
