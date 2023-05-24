@@ -9,16 +9,17 @@
 
 char *_getenv(const char *token)
 {
-	size_t token_length = strlen(token);
-	char **env;
+        size_t token_length = strlen(token);
+        char **env;
 
-	for (env = environ; *env != NULL; env++)
-	{
-		if (strncmp(token, *env, token_length) == 0 && (*env)[token_length] == '=')
-	{
-		return (&(*env)[token_length + 1]);
-	}
-	}
+        for (env = environ; *env != NULL; env++)
+        {
+                if (strncmp(token, *env, token_length) == 0 && (*env)[token_length] == '=')
+        {
+                return (&(*env)[token_length + 1]);
+        }
+        }
 
-	return (NULL);
+        return (NULL);
 }
+

@@ -53,7 +53,7 @@ int my_strcmp(const char *s1, const char *s2);
 void my_putstring(char *str);
 int	my_strlen(char *s);
 char *my_strchr(const char *s, char c);
-char *_getenv(const char *name);
+char *_getenv(const char *token);
 
 
 #endif
