@@ -41,4 +41,5 @@ void exect_cmd(char *cmd, char **argv, char *path_var)
 		execut_exter_cmd(args[0], args, path_var, argv);
 
 	free(args);
+	free(path_var);
 }
