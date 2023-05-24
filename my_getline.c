@@ -16,7 +16,7 @@ char *my_getline(void)
 	{
 		if (isatty(STDIN_FILENO))
 		{
-			write(1, "\n", 1);
+			write(STDOUT_FILENO, "\n", 1);
 		}
 		exit(0);
 	}
