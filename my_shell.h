@@ -34,6 +34,7 @@ int is_builtin_cmvd(const char *command);
 int check_cmd_path(const char *cmvd, char *cmd_path, char *path_var);
 void store_path_var(char **path_var);
 void exect_cmd(char *cmd, char **argv, char *path_var);
+void freechar(char **arr);
 
 /**
  * execut_exter_cmd - execute external command
