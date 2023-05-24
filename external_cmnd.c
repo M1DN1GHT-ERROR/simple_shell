@@ -39,10 +39,10 @@ void execut_exter_cmd(__attribute__((unused)) char *cmd, char **args,
         /* Execute the command */
         execve(command_path, args, environ);
         /* If execve returns, an error occurred */
-        my_putstring("sh: 1: ");
-        my_putstring(args[0]);
-        my_putstring(": not found\n");
-        exit(127);
+        write(STDOUT_FILENO, "sh: 1: ", strlen("sh: 1: "));
+        write(STDOUT_FILENO, args[0], strlen(args[0]));
+        write(STDOUT_FILENO, ": not found\n", strlen(": not found\n"));
+        _exit(127);
     }
     else
     {
