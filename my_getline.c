@@ -4,19 +4,21 @@
  * Return: The input.
  */
 
+
 char *my_getline(void)
 {
-	char *str = NULL;
-	size_t token = 0;
+	int tmp;
+	char *lptr = NULL;
+	size_t n = 0;
 
-	if (isatty(STDIN_FILENO))
-		write(STDOUT_FILENO, "$ ", 2);
-
-	if (getline(&str, &token, stdin) == -1)
+	tmp = getline(&lptr, &n, stdin);
+	if (tmp == EOF)
 	{
-		free(str);
-		return (NULL);
+		if (isatty(STDIN_FILENO))
+		{
+			write(1, "\n", 1);
+		}
+		exit(0);
 	}
-
-	return (str);
+	return (lptr);
 }
