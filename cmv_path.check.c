@@ -59,5 +59,5 @@ void store_path_var(char **path_var)
 	{
 		*path_var = strdup(path);
 	}
-	free (*path_var);
+
 }

@@ -12,7 +12,7 @@ void exect_cmd(char *cmd, char **argv, char *path_var)
 	char *fin, *item;
 	/*Tokenize the command into arguments*/
 	char **args = malloc((BUFFER_SIZE + 1) * sizeof(char *));
-	int arg_count = 0, i;
+	int arg_count = 0;
 
 	/*Trim leading whitespace*/
 	while (isspace(*cmd))
@@ -39,10 +39,7 @@ void exect_cmd(char *cmd, char **argv, char *path_var)
 		execute_builtin_cmvd(args);
 	else
 		execut_exter_cmd(args[0], args, path_var, argv);
-	for (i = 0; i < arg_count; i++)
-	{
-		free(args[i]);
-	}
-	free(args[i]);
+
+	free(args);
 	free(path_var);
 }

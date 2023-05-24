@@ -37,5 +37,5 @@ void handle_cd(char **args)
 	{
 		perror("cd");
 	}
-	free(dir);
+
 }
