@@ -11,7 +11,7 @@
 void cmd_exiter(char **cmvd, char *str)
 {
 free(str);
-deallocate_buffer(cmvd);
+buff_free(cmvd);
 exit(0);
 }
 
