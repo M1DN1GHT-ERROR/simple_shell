@@ -17,7 +17,7 @@ exit(0);
 #include "my_shell.h"
 
 /**
- * execut - executes cmd
+ * execute - executes cmd
  *@cp: cmd
 *@cmd:vector array
 * Return: 0
