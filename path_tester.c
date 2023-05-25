@@ -1,12 +1,10 @@
 #include "my_shell.h"
 
 /**
-* path_tester - checks whether path is valid
-* @path: tokenized path
-* @command: user entered command
-*
-* Return: path appended with command on success
-* NULL on failure
+ * path_tester - checks whether the path is valid
+ * @path: tokenized path
+ * @command: user entered command
+ * Return: path appended with command on success
 */
 char *path_tester(char **path, char *command)
 {
@@ -25,10 +23,10 @@ return (NULL);
 }
 
 /**
-* tkn_iz - creates tokens from given input
-* @str: to be tokenized
-*
-* Return: array of strings
+ * tkn_iz - creates tokens from the given input string
+ * @str: input string to be tokenized
+ *
+ * Return: array of strings
 */
 char **tkn_iz(char *str)
 {

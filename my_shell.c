@@ -1,12 +1,16 @@
 #include "my_shell.h"
+
+
+#include "my_shell.h"
+
 /**
-* main - carries out the read, execute then print output loop
-* @c: argument count
-* @v: argument vector
-* @envmnt: environment vector
-*
-* Return: 0
-*/
+ * main - entry point
+ * @c: argument count
+ * @v: argument vector
+ * @envmnt: environment vector
+ *
+ * Return: 0
+ */
 
 int main(int c, char **v, char *envmnt[])
 {

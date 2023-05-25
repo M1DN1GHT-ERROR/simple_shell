@@ -1,12 +1,15 @@
 #include "my_shell.h"
 
 /**
-* built_handler - handles execution of builtin functions
-* @cmvd: tokenized commands
-* @string: input read from stdin
-*
-* Return: 1 if executed, 0 if not
-*/
+ * built_handler - handles the execution of built-in functions
+ * @cmvd: tokenized commands
+ * @string: input read from stdin
+ *
+ * This function compares the first command token with the built-in functions.
+ * If a match is found, it calls the corresponding built-in handler function.
+ *
+ * Return: 1 if executed, 0 if not
+ */
 int built_handler(char **cmvd, char *string)
 {
 struct builtin builtin = {"env", "exit"};
@@ -27,11 +30,11 @@ return (0);
 #include "my_shell.h"
 
 /**
-* buff_free - frees buffers
-* @buffer: buffer to be freed
-*
-* Return: no return
-*/
+ * buff_free - frees buffers
+ * @buffer: buffer to be freed
+ *
+ * This function frees the memory allocated for the buffer.
+ */
 void buff_free(char **buffer)
 {
 int i = 0;
@@ -49,10 +52,13 @@ free(buffer);
 #include "my_shell.h"
 
 /**
- *sig_handler- it keeps track is acti mode
-*@s: the signal number
-*Return: nothing
-*/
+ * sig_handler - handles the signal and keeps track of the active mode
+ * @s: the signal number
+ *
+ * This function is the signal handler for a specific signal.
+ * It writes a newline character and "$ "
+ *	to the standard error file descriptor.
+ */
 
 void sig_handler(int s)
 {
@@ -63,9 +69,13 @@ write(STDERR_FILENO, "$ ", 2);
 #include "my_shell.h"
 
 /**
-* path_finder - finds the path from the global enviroment
-* Return: NULL if path is not found or path if path is found.
-*/
+ * path_finder - finds the PATH variable from the global environment
+ *
+ * This function searches for the PATH variable in the global environment.
+ * If found, it returns the value of the PATH variable.
+ * If not found
+ * Return: NULL.
+ */
 char *path_finder(void)
 {
 int p;

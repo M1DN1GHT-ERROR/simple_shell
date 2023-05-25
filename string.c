@@ -1,11 +1,10 @@
 #include "my_shell.h"
 
 /**
-* print_promp - prints $ to let user know the program is
-* ready to take their input
-* prints the prompt if the shell is in interactive mode
-* Return: no return
-*/
+ * print_promp - prints the prompt symbol ($)
+ * If the shell is in interactive mode
+ *	prints the prompt symbol to the standard error file descriptor
+ */
 void print_promp(void)
 {
 if ((isatty(STDIN_FILENO) == 1) && (isatty(STDOUT_FILENO) == 1))
@@ -17,7 +16,7 @@ write(STDERR_FILENO, "$emyy ", 2);
 #include "my_shell.h"
 
 /**
-* _putchar - writes the character c to stdout
+* _putchar - writes the character
 * @a: The character to print
 *
 * Return: On success 1.
@@ -30,9 +29,9 @@ return (write(1, &a, 1));
 
 /**
 * string_printer - prints a string
-* @a: string to be printed
+* @a: string
 *
-* Return: number of characters printed
+* Return: number of characters
 */
 int string_printer(char *a)
 {
@@ -50,7 +49,7 @@ return (i);
 #include "my_shell.h"
 
 /**
-* env_printer - prints the environment string to stdout
+* env_printer - prints the environment string
 *
 * Return: 0
 */

@@ -1,27 +1,30 @@
 #include "my_shell.h"
 
+
 /**
-* cmd_exiter - handles the exit cmd
-* @cmvd: tokenized command
-* @str: input read from stdin
-*
-* Return: no return
-*/
+ * cmd_exiter - handles the exit command
+ * @cmvd: tokenized command
+ * @str: input read from stdin
+ *
+ * This function frees the allocated memory and exits the program.
+ */
 void cmd_exiter(char **cmvd, char *str)
 {
 free(str);
-buff_free(cmvd);
+deallocate_buffer(cmvd);
 exit(0);
 }
 
 #include "my_shell.h"
 
 /**
- * execute - executes cmd
- *@cp: cmd
-*@cmd:vector array
-* Return: 0
-*/
+ * execute - executes a command
+ * @cp: command path
+ * @cmd: vector array of command arguments
+ *
+ * This function forks a new process and executes the command.
+ * It waits for the child process to complete before returning.
+ */
 void execute(char *cp, char **cmd)
 {
 pid_t _pid;
@@ -30,7 +33,9 @@ char **env = environ;
 
 _pid = fork();
 if (_pid < 0)
+{
 perror(cp);
+}
 if (_pid == 0)
 {
 execve(cp, cmd, env);
@@ -45,11 +50,16 @@ wait(&token);
 
 #include "my_shell.h"
 /**
- *check- checks to see weather its a built in function
-*@cmvd: tokenized user
-*@token: line drived fromgetline function
-*Return: 1 on success 0 on faillure
-*/
+ * check - checks whether it is a built-in function
+ * @cmvd: tokenized user input
+ * @token: line derived from getline function
+ *
+ * This function checks if the command is a built-in function.
+ * If it is, the corresponding built-in handler is called.
+ * If not, it checks if the command starts with '/' and executes it if true.
+ *
+ * Return: 1 on success, 0 on failure
+ */
 int check(char **cmvd, char *token)
 {
 if (built_handler(cmvd, token))
@@ -65,13 +75,15 @@ return (0);
 #include "my_shell.h"
 
 /**
-* path_adder - adds path to cmd
-* @path: path of cmd
-* @cmvd: user enter cmd
-*
-* Return: buf
-* NULL if failed
-*/
+ * path_adder - adds path to command
+ * @path: path of the command
+ * @cmvd: user-entered command
+ *
+ * This function concatenates the path and command, adding a '/' if necessary.
+ *
+ * Return: buffer containing the concatenated path and command
+ * NULL if memory allocation failed
+ */
 char *path_adder(char *path, char *cmvd)
 {
 char *buffer;
