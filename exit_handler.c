@@ -13,7 +13,7 @@ void handle_exit(char **args)
 	{
 		exit_code = atoi(args[1]);
 	}
-	freechar(args);
+
 	should_exit = 1; /*Set the flag to exit the shell*/
 	exit(exit_code);
 }
