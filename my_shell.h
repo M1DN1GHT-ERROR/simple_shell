@@ -1,61 +1,75 @@
-#ifndef _SHELL_H_
-#define _SHELL_H_
+#ifndef SHELL_H
+#define SHELL_H
 
-/* Header Files */
+#include <stdarg.h>
 #include <stdio.h>
 #include <stdlib.h>
-#include <unistd.h>
 #include <string.h>
+#include <unistd.h>
 #include <sys/types.h>
 #include <sys/wait.h>
 #include <sys/stat.h>
-#include <signal.h>
-#include <fcntl.h>
-#include <ctype.h>
+#include <time.h>
+#include <stdbool.h>
 
-/* for read write buffers */
-#define BUFFER_SIZE 1024
-#define READ_BUF_SIZE 1024
-#define WRITE_BUF_SIZE 1024
+/* handle built ins */
+int check(char **cmd, char *buf);
+void print_promp(void);
+void sig_handler(int m);
+char **tkn_iz(char *line);
+char *path_tester(char **path, char *command);
+char *path_adder(char *path, char *command);
+int built_handler(char **command, char *line);
+void cmd_exiter(char **command, char *line);
 
-/*external variables*/
-extern char **environ;
-int should_exit;
-char *path_var;
-
-/* Function Prototypes */
-void handle_cd(char **args);
-void execute_builtin_cmvd(char **args);
-void handle_exit(char **args);
-void handle_sigint(__attribute__((unused))int signum);
-void generate_prompt(void);
-int main(__attribute__((unused))int argc, char **argv);
-int is_builtin_cmvd(const char *command);
-int check_cmd_path(const char *cmvd, char *cmd_path, char *path_var);
-void store_path_var(char **path_var);
-void exect_cmd(char *cmd, char **argv, char *path_var);
-void freechar(char **arr);
+void env_printer(void);
 
 /**
- * execut_exter_cmd - execute external command
+ * struct tool - Represents a tool or feature
+ * @acti: Boolean indicating if the tool is active or not
  *
- * @cmd: The command string (unused).
- * @args: An array of arguments for the command.
- * @path_var: The value of the PATH environment variable.
- * @argv: The program arguments (unused).
+ * This structure is used to define a tool or feature, and the 'acti' member
+ * indicates whether the tool is active or not.
  */
-void execut_exter_cmd(__attribute__((unused)) char *cmd, char **args,
-		char *path_var, char **argv);
+struct tool
+{
+bool acti;
+} tool;
 
-/*string functions*/
-char *my_strcpy(char *dest, const char *src);
-char *my_strcat(char *dest, const char *src);
-int my_strcmp(const char *s1, const char *s2);
-void my_putstring(char *str);
-int	my_strlen(char *s);
-char *my_strchr(const char *s, char c);
-char *_getenv(const char *token);
-char *my_getline(void);
+void buff_free(char **buf);
 
+void execute(char *cp, char **cmd);
+char *path_finder(void);
+
+/**
+ * struct builtin - Represents built-in commands or functions
+ * @env: Pointer to a character representing the environment
+ * @exit: Pointer to a character representing the exit status
+ *
+ * This structure is used to store information related to built-in commands
+ * or functions in a program.
+ */
+struct builtin
+{
+char *env;
+char *exit;
+} builtin;
+
+/**
+ * struct items - Represents items or elements
+ * @final_exit: Integer representing the final exit status
+ * @line_c: Integer representing the line count
+ *
+ * This structure is used to store certain properties or data related to items
+ * or elements in a program.
+ */
+struct items
+{
+int final_exit;
+int line_c;
+} items;
+
+extern char **environ;
+extern __sighandler_t signal(int __sig, __sighandler_t __handler);
 
 #endif
