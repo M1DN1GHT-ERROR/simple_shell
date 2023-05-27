@@ -21,8 +21,9 @@ char *path_tester(char **path, char *command);
 char *path_adder(char *path, char *command);
 int built_handler(char **command, char *line);
 void cmd_exiter(char **command, char *line);
-
+char **get_environ(info_t *info);
 void env_printer(void);
+int _setenv(info_t *info, char *var, char *value);
 
 /**
  * struct tool - Represents a tool or feature
